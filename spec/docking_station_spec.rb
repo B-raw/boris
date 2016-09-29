@@ -4,8 +4,9 @@ require 'spec_helper'
 
    it { is_expected.to respond_to :release_bike}
 
+   let(:bike) { double :bike }
    it "should get a working bike" do
-     bike = double(:bike)
+     allow(bike).to receive(:working).and_return(true)
      expect(bike.working).to eq true
    end
 
